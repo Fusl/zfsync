@@ -155,13 +155,6 @@ ${hash} ${dsthost} ${dst}" | sort | uniq | grep -vE '^$' | base64 -e | tr -d '\n
 		src="${2}"
 
 		zfs get -Hovalue repl:remotes "${src}" | base64 -d | sort | uniq | while read hash dsthost dst; do
-			#echo "test"
-			if [ "x${dsthost}" == "x10.88.69.2" ]; then
-				continue
-			fi
-			if [ "x${dsthost}" == "x78.46.187.209" ]; then
-				continue
-			fi
 			if [ "x${hash}" == "x" -o "x${dsthost}" == "x" -o "x${dst}" == "x" ]; then
 				#echo "Something is wrong here O_o (hash=$hash;dsthost=$dsthost;dst=$dst"
 				continue
