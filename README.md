@@ -1,19 +1,17 @@
 # zfsync
 zfsync is a simple tool for keeping one or more ZFS storage pods synced up. It does not require any other configuration than just making sure the source/master server can automatically connect to the destination/slave server using SSH key authentication.
 
-## Important note
-At this time it is not possible to run zfsync on a destination/slave server as this will cause corruption of the synced ZFS datastores.
-Writing data on a synced filesystem on the destination/slave server is possible but data gets overwritten on the next zfsync pass.
-This script is a work-in-progress and proof-of-concept script. I use it to synchronize thousands of zfs datasets between multiple private storage pods (around 200T) and backup servers (around 500T).
-The script is not to be used as a snap+backup solution but rather as a simplified way of keeping two storage pools in sync.
+## Important notes
+* At this time it is not possible to run zfsync on a destination/slave server as this will cause corruption of the synced ZFS datastores.
+* Writing data on a synced filesystem on the destination/slave server is possible but data gets overwritten on the next zfsync pass.
+* This script is a work-in-progress and proof-of-concept script. I use it to synchronize thousands of zfs datasets between multiple private storage pods (around 200T) and backup servers (around 500T).
+* The script is not to be used as a snap+backup solution but rather as a simplified way of keeping two storage pools in sync.
 
 ### Installing dependency packages
-```
-FreeBSD: pkg install bash base64 pv pigz
-Debian/Ubuntu: To be done
-CentOS/RedHat: To be done
-openSUSE: To be done
-```
+* FreeBSD: `pkg install bash base64 pv pigz`
+* Debian/Ubuntu: To be done
+* CentOS/RedHat: To be done
+* openSUSE: To be done
 
 ### Defining smaller datasets to be synced
 ```
