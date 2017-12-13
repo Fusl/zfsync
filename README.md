@@ -15,13 +15,13 @@ zfsync is a simple tool for keeping one or more ZFS storage pods synced up. It d
 
 ### Defining smaller datasets to be synced
 ```
-./zfsync.sh slowinit src-pool/src-dataset destination dst-pool/dst-dataset
+./zfsync.sh init src-pool/src-dataset destination dst-pool/dst-dataset [dst-pool2/dst-dataset2 [...]]
 ```
 Note: Your source and destination pool names and dataset names do not need to match up. This command can be used multiiple times to add multiple destinations to a single dataset.
 
 ### Defining larger datasets to be synced
 ```
-./zfsync.sh slowinit src-pool/src-dataset destination dst-pool/dst-dataset
+./zfsync.sh slowinit src-pool/src-dataset destination dst-pool/dst-dataset [dst-pool2/dst-dataset2 [...]]
 ```
 Note: The slowinit command requires you to have at least double the size of the dataset to be synced available on both servers (source & destination). For example, if your dataset is 200G large, you need at least 400G of free space available on both the source and the destination server.
 
