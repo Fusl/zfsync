@@ -36,6 +36,12 @@ This command makes sure that - whatever happens to the SSH connections - the ini
 
 ### Synchronize all datasets to all destinations
 ```
-./zfsync.sh sync
+./zfsync.sh syncall
 ```
 Note: This is a wrapper between a somewhat complex `zfs list` and the `sync` commands
+
+### Continuously synchronize to all destinations
+```
+./zfsync.sh loop
+```
+Note: This is a simple `while true; do ./zfsync.sh syncall; done` wrapper.
